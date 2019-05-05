@@ -13,6 +13,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    /**
+     * @param food 自动注入
+     * @return
+     */
     @Bean
     public SupperMarket supperMarket(Food food) {
         SupperMarket market = new SupperMarket();
