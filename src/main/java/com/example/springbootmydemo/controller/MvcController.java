@@ -1,11 +1,12 @@
 package com.example.springbootmydemo.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.springbootmydemo.utils.IPAddressUtils;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author benjamin
@@ -34,5 +35,21 @@ public class MvcController {
 
             System.out.println("finally");
         }
+    }
+
+    @GetMapping("/ip")
+    public Object ip(HttpServletRequest request) {
+        Map<String, String> result = new HashMap<>();
+
+        Enumeration headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String key = (String) headerNames.nextElement();
+            String value = request.getHeader(key);
+            result.put(key, value);
+        }
+
+        return result;
+
+
     }
 }

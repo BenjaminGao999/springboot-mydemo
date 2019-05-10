@@ -31,7 +31,7 @@ public class ScheduledTask {
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
         long now = System.currentTimeMillis() / 1000;
-        System.out.println("Fixed rate task with one second initial delay - " + now);
+//        System.out.println("Fixed rate task with one second initial delay - " + now);
     }
 
 
