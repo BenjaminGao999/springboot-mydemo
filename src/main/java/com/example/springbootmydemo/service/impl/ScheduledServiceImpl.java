@@ -14,7 +14,6 @@ import java.sql.Timestamp;
 public class ScheduledServiceImpl {
 
 
-
     @Scheduled(fixedDelayString = "${eventTracking.delayFixed}")
     private void doTask() {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
