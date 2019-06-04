@@ -149,4 +149,19 @@ Swagger 允许我们通过 Docket 的 globalResponseMessage() 方法全局覆盖
         return "mobile: " + mobile + ", password: " + password + ", age:" + age;
     }
 
+
+    @GetMapping("/get06")
+    @ApiOperation("直接接header中参数")
+    public String get06(@RequestHeader("name") String name, @RequestHeader("id") Integer id) {
+
+        return "name: " + name + ", id:" + id;
+    }
+
+    @GetMapping("/get07")
+    @ApiOperation("用对象接header中的参数, xxx 行不通的， header参数只能一个个的接")
+    public String get07(@RequestHeader User user) {
+        return "name: " + user.getName() + ", id:" + user.getId();
+
+    }
+
 }
