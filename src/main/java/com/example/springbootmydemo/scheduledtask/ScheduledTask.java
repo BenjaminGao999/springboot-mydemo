@@ -10,13 +10,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledTask {
 
-/*    @Scheduled(cron = "0/5 * *  * * ? ")   //每5秒执行一次
+  /*  @Scheduled(cron = "0/5 * *  * * ? ")   //每5秒执行一次
     public void doTimerTask() {
 
         System.out.println("this is a timertask");
-    }
 
-    @Scheduled(fixedRate = 1000)
+        int i = 10 / 0;
+
+
+    }*/
+
+   /* @Scheduled(fixedRate = 1000)
     public void scheduleFixedRateTask() {
 
         System.out.println(
@@ -28,11 +32,11 @@ public class ScheduledTask {
      * 再重新开启新的任务
      * one by one 时间上非重叠的执行任务
      */
-    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
+   /* @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
         long now = System.currentTimeMillis() / 1000;
 //        System.out.println("Fixed rate task with one second initial delay - " + now);
     }
-
+*/
 
 }

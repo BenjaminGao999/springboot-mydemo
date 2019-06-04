@@ -21,11 +21,11 @@ public class AppScheduledDynamicDelay {
     @Scheduled(fixedDelayString = "${demo-delay}", initialDelay = 1000)
     private void appTask() {
 
-        String time = new Timestamp(System.currentTimeMillis()).toString();
+      /*  String time = new Timestamp(System.currentTimeMillis()).toString();
 
         System.out.println("app task time >>>" + time);
         System.out.println(" IN app demo lib key >>>"+demoLibKey);
-
+*/
 
     }
 }

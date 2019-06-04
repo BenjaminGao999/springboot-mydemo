@@ -32,52 +32,5 @@
     </dependencies>
 
 
-    <!--
-
-
-    mvn clean package -B -DskipTests -Pprod
-
-
-
-    -->
-    <profiles>
-        <profile>
-            <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <profiles.active>default</profiles.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <profiles.active>dev</profiles.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>beta</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <profiles.active>beta</profiles.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <profiles.active>lib-prod</profiles.active>
-            </properties>
-        </profile>
-    </profiles>
-
 
 </project>

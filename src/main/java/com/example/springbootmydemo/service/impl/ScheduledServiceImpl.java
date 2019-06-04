@@ -13,10 +13,10 @@ import java.sql.Timestamp;
 @Component
 public class ScheduledServiceImpl {
 
-
+/*
     @Scheduled(fixedDelayString = "${eventTracking.delayFixed}")
     private void doTask() {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         System.out.println("current time >>> " + timestamp.toString());
-    }
+    }*/
 }

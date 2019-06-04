@@ -1,5 +1,6 @@
 package com.example.springbootmydemo;
 
+import com.example.springbootmydemo.domain.TbBean;
 import com.example.springbootmydemo.utils.TimeUtils;
 import org.junit.Test;
 
@@ -144,50 +145,82 @@ GROUP BY s.parent_id
     @Test
     public void calandarTest() {
 
-       /* SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        date = calendar.getTime();
-        System.out.println(sdf.format(date));*/
 
-       /* SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Calendar calendar = Calendar.getInstance();
+        long start = TimeUtils.start(-1);
+        System.out.println(start);
+        long end = TimeUtils.end(-1);
+        System.out.println(end);
 
-        calendar.setTime(new Date());
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        System.out.println(new Timestamp(start).toString());
 
-        Date start = calendar.getTime();
-
-        System.out.println(sdf.format(start));*/
-
-
-      /*  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Calendar calendar = Calendar.getInstance();
-
-        calendar.setTime(new Date());
-        calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 59);
-        calendar.set(Calendar.SECOND, 59);
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-
-        Date end = calendar.getTime();
-
-        //2019-05-07 23:59:59
-        System.out.println(sdf.format(end));
-        long time = end.getTime();
-        */
-
-      /*
-      1557158400817
-1557244799817
-       */
-        System.out.println(TimeUtils.start());
-        System.out.println(TimeUtils.end());
+        System.out.println(new Timestamp(end).toString());
 
     }
+
+
+    @Test
+    public void testlocaldatetime() {
+
+        LocalDateTime localdatetimeStart = TimeUtils.localdatetimeStart();
+        System.out.println(localdatetimeStart);
+
+        LocalDateTime localdatetimeEnd = TimeUtils.localdatetimeEnd();
+        System.out.println(localdatetimeEnd);
+
+    }
+
+    @Test
+    public void tbbean() {
+
+        TbBean tbBean = new TbBean();
+
+        //java.lang.NullPointerException
+        // 因为要拆箱
+        if (tbBean.getId() > 0) {
+
+        }
+    }
+
+    @Test
+    public void timeClockTest() {
+
+        long startClock = TimeUtils.startClock();
+
+        long endNextClock = TimeUtils.endNextClock();
+
+        System.out.println(new Timestamp(startClock).toString());
+
+        System.out.println(new Timestamp(endNextClock).toString());
+
+    }
+
+    @Test
+    public void xTimeStamp() {
+
+        /*
+
+
+
+-- 1559026800
+SELECT UNIX_TIMESTAMP('2019-05-28 15:00:00')
+
+-- 1559030400
+SELECT UNIX_TIMESTAMP('2019-05-28 16:00:00')
+
+
+
+         */
+
+
+        Timestamp start = new Timestamp(1559026800000L);
+
+        Timestamp end = new Timestamp(1559030400000L);
+
+        System.out.println(start.toString());
+
+        System.out.println(end.toString());
+
+    }
+
+
 }

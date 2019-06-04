@@ -12,12 +12,12 @@ import org.springframework.context.annotation.PropertySource;
  * created at 2019/5/11
  */
 @Configuration
-@ComponentScan(basePackages = {
+/*@ComponentScan(basePackages = {
         "com.example.springboot.mydemo.demolib",
-})
+})*/
 @PropertySource("classpath:application-lib-prod.properties")
 @Profile("prod")
-public class LibAppConfigProd {
+public class LibAppConfigProd extends LibAppConfigDefault{
     @Value("${demo-lib-key}")
     private String lib_demo_key;
 
@@ -30,7 +30,7 @@ public class LibAppConfigProd {
    lib 的 application-lib.properties
    （要想让lib引用自己的外部属性文件，必须要在lib中显示的执行其要加载的外部文件，并且不能与application的外部属性文件同名）
 
-   SpringbootApplication的 application.properties
+   SpringbootApplication的 application-lib.properties
 
    如果lib的application.properties和SpringBootApplication的application.properties同名，
    则lib的外部属性文件会被覆盖点（直接丢弃）
