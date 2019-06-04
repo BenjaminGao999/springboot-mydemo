@@ -18,14 +18,14 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-//@MapperScan("com.microfinance.market.database.biz.mapper")
+@MapperScan("com.example.springboot.mybatis.mybatisdemo.mapper")
 @AutoConfigureAfter(PageHelperAutoConfiguration.class)
 public class MybatisConfiguration {
 
 
 //    private static String MAPPER_LOCATION = "classpath:/com/microfinance/market/database/biz/mapper/*.xml";
 
-//    private static String TYPE_ALIASES_PACKAGE = "com.microfinance.market.database.biz.model";
+    private static String TYPE_ALIASES_PACKAGE = "com.example.springboot.mybatis.mybatisdemo.model";
 
     @Autowired
     DataSource dataSource;
@@ -46,7 +46,7 @@ public class MybatisConfiguration {
 
 //        sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper});
         //mybatis.typeAliasesPackage：指定domain类的基包，即指定其在*Mapper.xml文件中可以使用简名来代替全类名（看后边的UserMapper.xml介绍）
-//        sqlSessionFactoryBean.setTypeAliasesPackage(TYPE_ALIASES_PACKAGE);
+        sqlSessionFactoryBean.setTypeAliasesPackage(TYPE_ALIASES_PACKAGE);
 //        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAPPER_LOCATION));
         return sqlSessionFactoryBean.getObject();
     }
