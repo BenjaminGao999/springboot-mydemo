@@ -27,8 +27,15 @@ public interface VillageMapper {
     @Select("SELECT id, name, district from village")
     List<Village> selectVillageALL();
 
+    @Results({
+            @Result(property = "vid", column = "id"),
+            @Result(property = "villageName", column = "name"),
+            @Result(property = "district", column = "district")
+    })
     @Insert("INSERT into village(name,district) VALUES(#{villageName}, #{district})")
+    @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "vid")
     void insertVillage(Village village);
+
 
     @Update("UPDATE village SET name=#{villageName}, district =#{district} WHERE id =#{vid}")
     void updateVillage(Village village);
