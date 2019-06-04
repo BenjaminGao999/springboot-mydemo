@@ -27,11 +27,11 @@ public interface VillageMapper {
     @Select("SELECT id, name, district from village")
     List<Village> selectVillageALL();
 
-    @Results({
-            @Result(property = "vid", column = "id"),
-            @Result(property = "villageName", column = "name"),
-            @Result(property = "district", column = "district")
-    })
+
+    /*
+
+        批量插入和返回每条插入记录的id
+     */
     @Insert("INSERT into village(name,district) VALUES(#{villageName}, #{district})")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "vid")
     void insertVillage(Village village);

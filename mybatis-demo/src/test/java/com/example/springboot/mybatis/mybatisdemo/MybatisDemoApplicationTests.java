@@ -85,8 +85,20 @@ public class MybatisDemoApplicationTests {
     @Test
     public void insertBatchVillage() {
 
-        ArrayList<Village> villages = getVillages();
+        ArrayList<Village> villages = new ArrayList<>();
 
+        for (int i = 0; i < 2; i++) {
+
+            Village village = new Village();
+
+//            village.setVid(4 + i);
+
+            village.setVillageName("小村庄" + i);
+
+            village.setDistrict("100" + i + "0");
+
+            villages.add(village);
+        }
 
         try (SqlSession sqlSession = factory.openSession(ExecutorType.BATCH)) {
             VillageMapper villageMapper = sqlSession.getMapper(VillageMapper.class);
@@ -104,24 +116,6 @@ public class MybatisDemoApplicationTests {
 
 
 
-    }
-
-    private ArrayList<Village> getVillages() {
-        ArrayList<Village> villages = new ArrayList<>();
-
-        for (int i = 0; i < 2; i++) {
-
-            Village village = new Village();
-
-//            village.setVid(4 + i);
-
-            village.setVillageName("小村庄" + i);
-
-            village.setDistrict("100" + i + "0");
-
-            villages.add(village);
-        }
-        return villages;
     }
 
 
