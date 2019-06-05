@@ -2,6 +2,7 @@ package com.example.springboot.mybatis.mybatisdemo.Conroller;
 
 import com.example.springboot.mybatis.mybatisdemo.mapper.VillageMapper;
 import com.example.springboot.mybatis.mybatisdemo.model.Village;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,9 @@ public class MybatisController {
         village.setVillageName("柯里昂");
         village.setDistrict("10010");
         villageMapper.insertVillage02(village,"name");
+
+        System.out.println(new Gson().toJson(village));
+
 
         return "log";
     }
