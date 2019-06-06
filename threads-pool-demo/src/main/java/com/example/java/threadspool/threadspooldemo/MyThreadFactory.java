@@ -34,16 +34,6 @@ class MyExceptionHandler implements Thread.UncaughtExceptionHandler {
     }
 }
 
-final class MyTask implements Runnable {
-    @Override
-    public void run() {
-        System.out.println("My task is started running...");
-        // ...
-        throw new ArithmeticException();
-        // ...
-    }
-}
-
 class UncaughtExceptionHandler {
     public static void main(String[] args) {
         ThreadFactory factory = new MyThreadFactory(new MyExceptionHandler());
