@@ -2,6 +2,7 @@ package com.example.springboot.mybatis.mybatisdemo;
 
 import com.example.springboot.mybatis.mybatisdemo.mapper.VillageMapper;
 import com.example.springboot.mybatis.mybatisdemo.model.Village;
+import com.example.springboot.mybatis.mybatisdemo.service.VillageService;
 import com.google.gson.Gson;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
@@ -151,5 +152,14 @@ public class MybatisDemoApplicationTests {
         villageMapper.updateVillage(village);
     }
 
+
+    @Autowired
+    VillageService villageService;
+
+    @Test
+    public void propagationTest() {
+
+        villageService.insertOne();
+    }
 
 }

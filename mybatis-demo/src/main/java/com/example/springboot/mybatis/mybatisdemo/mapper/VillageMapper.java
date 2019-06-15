@@ -34,7 +34,7 @@ public interface VillageMapper {
 
         批量插入和返回每条插入记录的id
      */
-    @Transactional// 开启事务， 否则不开启
+//    @Transactional// 开启事务， 否则不开启|| 不要写在这里， 要写在service方法上
     @Insert("INSERT into village(name,district) VALUES(#{villageName}, #{district})")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "vid")
     void insertVillage(Village village);
@@ -44,7 +44,7 @@ public interface VillageMapper {
 
        批量插入和返回每条插入记录的id
     */
-    @Transactional// 开启事务， 否则不开启
+//    @Transactional// 开启事务， 否则不开启 || 不要写在这里， 要写在service方法上
     @Insert("INSERT into village(${column},district) VALUES(#{village.villageName}, #{village.district})")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "vid")
     void insertVillage02(@Param("village") Village village, @Param("column") String column);
