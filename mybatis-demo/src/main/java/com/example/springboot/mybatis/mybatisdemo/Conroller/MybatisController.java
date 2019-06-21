@@ -24,8 +24,8 @@ public class MybatisController {
         Village village = new Village();
         village.setVillageName("柯里昂");
         village.setDistrict("10010");
-        villageMapper.insertVillage02(village,"name");
-
+//        villageMapper.insertVillage02(village,"name");
+        villageMapper.insertVillage(village);
         System.out.println(new Gson().toJson(village));
 
 
