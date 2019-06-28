@@ -22,6 +22,12 @@ public class ThreadLocalMain {
 //        pool-1-thread-2 >> th1 null
 //        pool-1-thread-2 >> th2 null
 
+//        threadLocal作为threadLocalMap的key
+//        单个Thread对应一个 threadLocals(threadLocalMap instance)
+//        threadLocalMap以threadLocal作为key，对应thread的variable
+//        因此 单个thread可以对应多个threadLocal, 多个threadLocal对应多个variables
+
+
         ExecutorService threadPool =
                 Executors.newFixedThreadPool(3);
 
