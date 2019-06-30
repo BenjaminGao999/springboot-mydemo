@@ -1,5 +1,7 @@
 package com.example.base.java.demobasejava.reference;
 
+import sun.misc.GC;
+
 import java.lang.ref.*;
 
 /**
@@ -59,46 +61,69 @@ public class ReferenceMain {
 //    }
 
 
-    public static void main(String[] args) {
-        // weak reference
-
-        Bean jack = new Bean("jack", 10);
-        WeakReference<Bean> weakReference = new WeakReference<Bean>(jack);
-
-
-        jack = null; // 断开了对referent的强引用
-
-        System.gc();
-        System.runFinalization();
-
-
-        // null
-        System.out.println(weakReference.get() == null ? null : weakReference.get().getName());
-
-
-        //if almost 98% of CPU for a Java process is busy doing GC and reclaims very less amount of Java heap space around 2%, then JVM throws "java.lang.OutOfMemoryError: GC overhead limit exceeded" error.
-
-        /*Reference<Bean>[] referent = new WeakReference[16_000];
-        for (int i = 0; i < referent.length; i++) {
-            referent[i] = new WeakReference<>(new Bean("mybean:" + i, 100));
-        }
-
-        System.out.println(referent[100].get());// “null”*/
-    }
-
-
 //    public static void main(String[] args) {
-//        //java.lang.OutOfMemoryError: Java heap space 10_000
-//        Reference<Bean>[] referent = new PhantomReference[10_000];
-//        ReferenceQueue<Bean> queue = new ReferenceQueue<Bean>();
+//        // weak reference
+//
+//        Bean jack = new Bean("jack", 10);
+//        WeakReference<Bean> weakReference = new WeakReference<Bean>(jack);
+//
+//
+//        jack = null; // 断开了对referent的强引用
+//
+//        System.gc();
+//        System.runFinalization();
+//
+//
+//        // null
+//        System.out.println(weakReference.get() == null ? null : weakReference.get().getName());
+//
+//
+//        //if almost 98% of CPU for a Java process is busy doing GC and reclaims very less amount of Java heap space around 2%, then JVM throws "java.lang.OutOfMemoryError: GC overhead limit exceeded" error.
+//
+//        /*Reference<Bean>[] referent = new WeakReference[16_000];
 //        for (int i = 0; i < referent.length; i++) {
-//            referent[i] = new PhantomReference<Bean>(new Bean("mybean:" + i, 100),
-//                    queue);// throw Exception
+//            referent[i] = new WeakReference<>(new Bean("mybean:" + i, 100));
 //        }
 //
-//        // null 8_000
-//        System.out.println(referent[100].get());
+//        System.out.println(referent[100].get());// “null”*/
 //    }
+
+
+    public static void main(String[] args) {
+        // phantom reference
+
+       /* //java.lang.OutOfMemoryError: Java heap space 10_000
+        Reference<Bean>[] referent = new PhantomReference[10_000];
+        ReferenceQueue<Bean> queue = new ReferenceQueue<Bean>();
+        for (int i = 0; i < referent.length; i++) {
+            referent[i] = new PhantomReference<Bean>(new Bean("mybean:" + i, 100),
+                    queue);// throw Exception
+        }
+
+        // null 8_000
+        System.out.println(referent[100].get());*/
+
+//        ReferenceQueue<Bean> referenceQueue = new ReferenceQueue<>();
+//        PhantomReference<Bean> phantomReference =
+//                new PhantomReference<>(new Bean("jack", 100), referenceQueue);
+//
+//
+//        // 对于虚引用对象，在经过多次 GC 之后， 才会加入到队列中去
+//        Reference<? extends Bean> mynewphantom = null;
+//        int refCount = 1;
+//        while (mynewphantom == null) {
+//            mynewphantom = referenceQueue.poll();
+//            System.gc();
+//            System.runFinalization();
+//            if (mynewphantom != null) {
+//                System.out.println("Check Phantom queue:" + mynewphantom);
+//                System.out.println("Count for " + refCount + " times");
+//                break;
+//            }
+//            refCount++;
+//        }
+
+    }
 
 
 //    public static void main(String[] args) {
