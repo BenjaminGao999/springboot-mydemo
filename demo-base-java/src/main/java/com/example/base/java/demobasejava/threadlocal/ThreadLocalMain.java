@@ -28,6 +28,18 @@ public class ThreadLocalMain {
 //        因此 单个thread可以对应多个threadLocal, 多个threadLocal对应多个variables
 
 
+        //https://docs.oracle.com/javase/8/docs/api/java/lang/ref/package-summary.html
+        // Reachability
+        // strongly reachable
+        // softly reachable
+        // weakly reachable
+        // phantom reachable
+        // unreachable
+
+
+
+
+
         ExecutorService threadPool =
                 Executors.newFixedThreadPool(3);
 
@@ -49,6 +61,8 @@ public class ThreadLocalMain {
         System.out.println(Thread.currentThread().getName() + " >> th1 " + threadLocal1.get());
         System.out.println(Thread.currentThread().getName() + " >> th2 " + threadLocal2.get());
 
+
+//        threadLocal1.remove();
 
         threadPool.execute(run1);
 
