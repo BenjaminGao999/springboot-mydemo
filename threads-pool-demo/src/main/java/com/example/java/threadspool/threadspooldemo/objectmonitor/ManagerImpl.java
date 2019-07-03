@@ -11,6 +11,9 @@ public class ManagerImpl implements Manager {
 
     private Queue<String> queue;
 
+    private volatile int consumerCount = -1;
+
+
     public ManagerImpl(Queue<String> queue) {
         this.queue = queue == null ? new LinkedList<>() : queue;
     }
@@ -25,15 +28,16 @@ public class ManagerImpl implements Manager {
 
     @Override
     public synchronized void consume() {
-        String poll = this.queue.poll();
-        if (poll == null) {
+        String good = this.queue.poll();
+        consumerCount++;
+        if (good == null) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println(Thread.currentThread().getName() + poll);
+            System.out.println(Thread.currentThread().getName() + good + " - " + consumerCount);
         }
     }
 

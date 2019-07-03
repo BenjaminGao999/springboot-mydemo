@@ -44,5 +44,7 @@ public class ManagerTestMain {
 
         threadPool.execute(consumer);
         threadPool.execute(consumer);
+
+        threadPool.shutdown();
     }
 }
