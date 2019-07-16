@@ -23,6 +23,7 @@ public class VillageService {
         doActuallyInsert();
     }
 
+
     public void doActuallyInsert() {
         Village village = new Village();
         village.setVillageName("柯里昂");
