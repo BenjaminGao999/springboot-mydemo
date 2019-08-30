@@ -12,9 +12,10 @@ public class HashMapTestMain {
 
         HashMap<String, Object> map = new HashMap<>();
 
-        map.put("key","value");
+        map.put("key", "value");
 
+        System.out.println(map.hashCode() >>> 16);// bit位上的高16位
 
-
+        System.out.println(5 % 2);
     }
 }
