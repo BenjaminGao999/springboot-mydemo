@@ -3,11 +3,13 @@ package com.example.springbootmydemo;
 import com.example.springbootmydemo.domain.GsonBean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import javafx.scene.effect.Light;
 import org.junit.Test;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author benjamin
@@ -30,8 +32,17 @@ public class GsonTest {
             list.add(hashMap);
         }
 
-        System.out.println(list.toString());
+        String x = list.toString();
+//        System.out.println(x);
 
+
+        Type type = new TypeToken<List<GsonBean>>() {
+        }.getType();
+
+
+
+        // [{"name":"bai","age":10},{"name":"bai","age":10}]
+        System.out.println(gson.toJson(list, type));
 
     }
 
@@ -49,9 +60,11 @@ public class GsonTest {
         Type type = new TypeToken<ArrayList<GsonBean>>() {
         }.getType();
 
-        ArrayList<GsonBean> list = gson.fromJson(jsonList, type);
+//        ArrayList<GsonBean> list = gson.fromJson(jsonList, type);
+//
+//        System.out.println(list.toString());
 
-        System.out.println(list.toString());
+
 
     }
 
