@@ -14,11 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -44,6 +46,7 @@ public class MongodbApplicationTests {
 
 //        MongoOperations mongoOps = new MongoTemplate(new MongoClient(), "database");
         Person1 joe = new Person1("Joe", 34);
+//        Person1 joe = new Person1("Joe II", 34);
         mongoOps.insert(joe);
         // 会写id
         logger.info(joe.toString());
@@ -86,6 +89,7 @@ public class MongodbApplicationTests {
 
 
     @Test
+    @Transactional
     public void findByThePersonsFirstname() {
 
         List<Person> list = repository.findByThePersonsFirstname("高");
@@ -97,5 +101,6 @@ public class MongodbApplicationTests {
     public void deleteAll() {
         repository.deleteAll();
     }
+
 
 }
