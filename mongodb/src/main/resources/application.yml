@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/0910
+logging:
+  level:
+    org.springframework.data.mongodb: debug
