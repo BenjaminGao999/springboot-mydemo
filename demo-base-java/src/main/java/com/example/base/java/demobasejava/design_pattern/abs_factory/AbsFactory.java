@@ -6,8 +6,10 @@ package com.example.base.java.demobasejava.design_pattern.abs_factory;
  * 抽象工厂
  */
 public interface AbsFactory {
+    // 冰箱
     AbsProductA createProductA();
 
+    // 洗衣机
     AbsProductB createProductB();
 
 }

@@ -5,6 +5,7 @@ package com.example.base.java.demobasejava.design_pattern.abs_factory;
  * created at 2019/8/22
  * <p>
  * 具体的工厂
+ * 海尔工厂
  */
 public class ConcreteFactoryA implements AbsFactory {
     @Override
