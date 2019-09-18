@@ -6,7 +6,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableScheduling
 public class SpringbootMydemoApplication {
 
     public static void main(String[] args) {
