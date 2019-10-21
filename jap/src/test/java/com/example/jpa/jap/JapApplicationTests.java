@@ -14,8 +14,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.CollectionUtils;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -147,4 +152,35 @@ public class JapApplicationTests {
     }
 
 
+    @Autowired
+    private EntityManager entityManager;
+
+    @Test
+    public void dynamicSQL() {
+        UserDO userDO = new UserDO();
+        userDO.setId(1L);
+        userDO.setName("风清扬");
+        userDO.setAccount("fengqy");
+        userDO.setPwd("123456");
+
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<UserDO> cq = cb.createQuery(UserDO.class);
+        Root<UserDO> root = cq.from(UserDO.class);
+        Predicate predicate = cb.equal(root.get("name"), userDO.getName());
+        cq.where(predicate);
+        TypedQuery<UserDO> typedQuery =
+                entityManager.createQuery(cq);
+
+        List<UserDO> resultList = typedQuery.getResultList();
+
+        if (CollectionUtils.isEmpty(resultList)) {
+            return;
+        }
+
+        resultList.forEach(userDO1 -> {
+            System.out.println(userDO1);
+        });
+
+
+    }
 }

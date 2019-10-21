@@ -18,18 +18,24 @@ public class RedisRedissonDemoApplicationTests {
     RedisLock redisLock;
 
     @Test
-    public void contextLoads() {
-        String keyPrefix = "appname:modulename:";
-        String key = keyPrefix + "articleId:" + "customerId";
+    public void contextLoads() throws InterruptedException {
+        String keyPrefix = "app:model:";
+        String key = keyPrefix + "function:" + "f1";
         String value = UUID.randomUUID().toString();
-        redisLock.setTimeout(3000);
-        boolean lock = redisLock.lock(key, value);
 
-//        System.out.println(lock);
+        boolean lock = redisLock.tryLock(key, value, -1L);
+        System.out.println(lock);
+        redisLock.unlock(key,value);
 
+//        boolean lock1 = redisLock.lock(key, value, -1L);
+//        System.out.println(lock1);
 
-        boolean unlock = redisLock.unlock(key, value);
-
-        System.out.println(unlock);
+        boolean lock1 = redisLock.tryLock(key, value, -1L, 1000L);
+        System.out.println(lock1);
     }
+
+
+
+
+
 }
