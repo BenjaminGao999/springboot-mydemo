@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.concurrent.ExecutionException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
@@ -19,7 +21,7 @@ public class DemoApplicationTests {
     SpringAsyncServiceImpl asyncService;
 
     @Test
-    public void asyncTest() {
+    public void asyncTest() throws ExecutionException, InterruptedException {
 
         asyncService.entry();
     }
