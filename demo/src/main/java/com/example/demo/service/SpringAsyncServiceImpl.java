@@ -43,6 +43,9 @@ public class SpringAsyncServiceImpl {
 
             Thread.sleep(1000L);
 
+//            int i = 10 / 0;
+
+
             return Thread.currentThread().getName() + " # 我沉睡了1000ms 现在我醒来了";
 
         });
