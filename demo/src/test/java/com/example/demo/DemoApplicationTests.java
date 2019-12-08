@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.config.SomeProperties;
 import com.example.demo.service.SpringAsyncServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,5 +26,15 @@ public class DemoApplicationTests {
 
         asyncService.entry();
     }
+
+    @Autowired
+    SomeProperties someProperties;
+
+    @Test
+    public void someProperties(){
+
+        System.out.println(someProperties.toString());
+    }
+
 
 }

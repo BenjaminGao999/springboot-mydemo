@@ -19,24 +19,24 @@ public class CJLIBProxyTest {
 
 //        Class proxyClass = getProxyClass(MyInterface.class.getClassLoader(), new Class[]{MyInterface.class});
 
-        MyInterfaceImpl myInterface = new MyInterfaceImpl();
-
-        MyInterface instance = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(), new Class[]{MyInterface.class}, new InvocationHandler() {
-            @Override
-            public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
-
-                System.out.println("before method ");
-
-                method.invoke(myInterface, args);
-
-                System.out.println("after method ");
-
-                return null;
-            }
-        });
-
-
-        instance.method();
+//        MyInterfaceImpl myInterface = new MyInterfaceImpl();
+//
+//        MyInterface instance = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(), new Class[]{MyInterface.class}, new InvocationHandler() {
+//            @Override
+//            public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
+//
+//                System.out.println("before method ");
+//
+//                method.invoke(myInterface, args);
+//
+//                System.out.println("after method ");
+//
+//                return null;
+//            }
+//        });
+//
+//
+//        instance.method();
 
 
 

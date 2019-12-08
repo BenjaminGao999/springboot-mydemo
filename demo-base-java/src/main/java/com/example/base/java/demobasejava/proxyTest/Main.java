@@ -12,31 +12,37 @@ import java.lang.reflect.Proxy;
  */
 public class Main {
     public static void main(String[] argv) throws Exception {
-//        MyInterface myintf = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(),
-//                new Class[]{MyInterface.class}, new ProxyClass(new MyInterfaceImpl()));
-//        myintf.method();
+
+
+//        MyInterfaceImpl myInterface = new MyInterfaceImpl();
 //
+//
+//        MyInterface instance = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(), new Class[]{MyInterface.class}, new InvocationHandler() {
+//            @Override
+//            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//
+//                Object result = null;
+//                try {
+//                    System.out.println("before the method is called ");
+//                    result = method.invoke(myInterface, args);
+//                } catch (Exception eBj) {
+//                } finally {
+//                    System.out.println("after the method is called");
+//                }
+//                return result;
+//            }
+//        });
+//
+//        instance.method();
 
-        MyInterfaceImpl myInterface = new MyInterfaceImpl();
+
+//        MyInterface proxy = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(),
+//                new Class[]{MyInterface.class}, new ProxyClass(new MyInterfaceImpl()));
+//
+//
+//        proxy.method();
 
 
-        MyInterface instance = (MyInterface) Proxy.newProxyInstance(MyInterface.class.getClassLoader(), new Class[]{MyInterface.class}, new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-                Object result = null;
-                try {
-                    System.out.println("before the method is called ");
-                    result = method.invoke(myInterface, args);
-                } catch (Exception eBj) {
-                } finally {
-                    System.out.println("after the method is called");
-                }
-                return result;
-            }
-        });
-
-        instance.method();
 
     }
 }

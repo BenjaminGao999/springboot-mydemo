@@ -1,2 +1,6 @@
 server:
   port: 9999
+
+some-config:
+  p1: 0
+  p2: 1
