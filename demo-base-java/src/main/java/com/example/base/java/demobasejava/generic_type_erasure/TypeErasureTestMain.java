@@ -10,8 +10,8 @@ public class TypeErasureTestMain {
 
         MyNode mn = new MyNode(5);
         Node n = mn;            // A raw type - compiler throws an unchecked warning
-//        n.setData("Hello");
-        n.setData(100);
+        n.setData("Hello");
+//        n.setData(100);
         Integer x = mn.data;    // Causes a ClassCastException to be thrown.
 
     }

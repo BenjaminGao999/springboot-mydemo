@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.example.springboot.mydemo.demolib.config.LibAppConfigDefault,\
-  com.example.springboot.mydemo.demolib.config.LibAppConfigProd,\
-  com.example.springboot.mydemo.demolib.config.LibConfigration
