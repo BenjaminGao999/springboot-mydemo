@@ -1,6 +1,7 @@
 package com.example.base.java.demobasejava.collection;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author benjamin
@@ -21,8 +22,6 @@ public class ConcurrentHashMapTest {
 
 
 
-
-
+//        System.gc();
     }
-
 }
