@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
  * @author benjamin
  * created at 2019/7/9
  */
-public class MapaMainTest {
+public class MapMainTest {
 
     /*
 
